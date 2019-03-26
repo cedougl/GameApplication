@@ -86,7 +86,8 @@
 
     </dl>
 
-    @using (Html.BeginForm("DeletePlayer", "Players", FormMethod.Post)) {
+    @using (Html.BeginForm("DeletePlayer", "Players", routeValues: new { id = Model.Id }, method: FormMethod.Post))
+    {
         @Html.AntiForgeryToken()
         @Html.HttpMethodOverride(HttpVerbs.Delete)
 

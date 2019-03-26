@@ -49,7 +49,7 @@ namespace GameApi.Migrations
                 new Achievement() { Id = 2, PlayerId = 2, GameId = 2, Name = "Perfect Kill", Description = "Amazing performance award", CreatedBy = 1, CreateTime = DateTime.Now, UpdatedBy = 1, UpdateTime = DateTime.Now },
                 new Achievement() { Id = 3, PlayerId = 3, GameId = 3, Name = "Extra Lego Coins", Description = "Bonus coins for your recent accomplishment", CreatedBy = 1, CreateTime = DateTime.Now, UpdatedBy = 1, UpdateTime = DateTime.Now },
                 new Achievement() { Id = 4, PlayerId = 4, GameId = 2, Name = "Holiday Bonus", Description = "Extra Holiday Bonus", CreatedBy = 1, CreateTime = DateTime.Now, UpdatedBy = 1, UpdateTime = DateTime.Now },
-                new Achievement() { Id = 5, PlayerId = 5, GameId = 2, Name = "Speed Bonus", Description = "Fast Tke Down Bonus", CreatedBy = 1, CreateTime = DateTime.Now, UpdatedBy = 1, UpdateTime = DateTime.Now }
+                new Achievement() { Id = 5, PlayerId = 5, GameId = 2, Name = "Speed Bonus", Description = "Fast Take Down Bonus", CreatedBy = 1, CreateTime = DateTime.Now, UpdatedBy = 1, UpdateTime = DateTime.Now }
             );
 
             context.Matches.AddOrUpdate(x => x.Id,

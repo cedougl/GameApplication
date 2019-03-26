@@ -37,7 +37,8 @@
         </dd>
     </dl>
 
-    @using (Html.BeginForm("DeleteGame", "Games", FormMethod.Post)) {
+    @using (Html.BeginForm("DeleteGame", "Games", routeValues: new { id = Model.Id }, method: FormMethod.Post))
+    {
         @Html.AntiForgeryToken()
         @Html.HttpMethodOverride(HttpVerbs.Delete)
 
