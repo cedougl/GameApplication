@@ -27,26 +27,6 @@ namespace GameApplication.Controllers
             return View(games);
         }
 
-        //public ActionResult Statistics(long gameId)
-        //{
-        //    ServiceRepository service = new ServiceRepository();
-        //    HttpResponseMessage response = service.GetResponse("api/v1/statistics?gameId=" + gameId.ToString());
-        //    response.EnsureSuccessStatusCode();
-        //    List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
-        //    ViewBag.Title = "Game Statistics";
-        //    return View(stats);
-        //}
-
-        //public ActionResult Achievements(long gameId)
-        //{
-        //    ServiceRepository service = new ServiceRepository();
-        //    HttpResponseMessage response = service.GetResponse("api/v1/achievements?gameId=" + gameId.ToString());
-        //    response.EnsureSuccessStatusCode();
-        //    List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
-        //    ViewBag.Title = "Game Achievements";
-        //    return View(achievements);
-        //}
-
         /// <summary>
         /// Calls web API to get a specific game object
         /// </summary>

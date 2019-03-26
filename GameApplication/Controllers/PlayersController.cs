@@ -56,44 +56,6 @@ namespace GameApplication.Controllers
             return View(players);
         }
 
-        //[HttpGet]
-        //public ActionResult Index(string sortColumnName, string orderBy, string searchString, int limit, int offset)
-        //{
-        //    ServiceRepository service = new ServiceRepository();
-
-        //    string url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString +
-        //        "&limit=" + limit.ToString() + "&offset=" + offset.ToString();
-
-        //    // Neither sorting or search string was specified
-        //    //if (string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-        //    //{
-        //    //    url = "api/v1/players";
-        //    //}
-        //    //// Search string and sorting
-        //    //else if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-        //    //{
-        //    //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString;
-        //    //}
-        //    //// Sorting
-        //    //else if (!string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-        //    //{
-        //    //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy;
-        //    //}
-        //    //// Search string
-        //    //else if (string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-        //    //{
-        //    //    url = "api/v1/players?searchString=" + searchString;
-        //    //}
-
-
-        //    HttpResponseMessage response = service.GetResponse(url);
-        //    response.EnsureSuccessStatusCode();
-        //    List<Player> players = response.Content.ReadAsAsync<List<Player>>().Result;
-        //    ViewBag.Title = "Players";
-
-        //    return View(players);
-        //}
-
         /// <summary>
         /// Calls the web API to get the details for a specific player
         /// </summary>
@@ -109,26 +71,6 @@ namespace GameApplication.Controllers
             ViewBag.Title = "Player Details";
             return View(player);
         }
-
-        //public ActionResult Statistics(long playerId)
-        //{
-        //    ServiceRepository service = new ServiceRepository();
-        //    HttpResponseMessage response = service.GetResponse("api/v1/statistics?playerId=" + playerId.ToString());
-        //    response.EnsureSuccessStatusCode();
-        //    List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
-        //    ViewBag.Title = "Player Statistics";
-        //    return View(stats);
-        //}
-
-        //public ActionResult Achievements(long playerId)
-        //{
-        //    ServiceRepository service = new ServiceRepository();
-        //    HttpResponseMessage response = service.GetResponse("api/v1/achievements?playerId=" + playerId.ToString());
-        //    response.EnsureSuccessStatusCode();
-        //    List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
-        //    ViewBag.Title = "Player Achievements";
-        //    return View(achievements);
-        //}
 
         /// <summary>
         /// Calls the web API to get the details for a specific player to be edited

@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201903242142356_UpdateData.Designer.cs">
       <DependentUpon>201903242142356_UpdateData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903261435589_RequiredColumns.cs" />
+    <Compile Include="Migrations\201903261435589_RequiredColumns.Designer.cs">
+      <DependentUpon>201903261435589_RequiredColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\Game.cs" />
@@ -340,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903242142356_UpdateData.resx">
       <DependentUpon>201903242142356_UpdateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261435589_RequiredColumns.resx">
+      <DependentUpon>201903261435589_RequiredColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
