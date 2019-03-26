@@ -19,7 +19,7 @@ namespace GameApplication.Controllers
         /// <returns>ViewResult</returns>
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Game Application";
 
             return View();
         }
