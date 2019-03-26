@@ -78,7 +78,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteAchievement", "Achievements", FormMethod.Post)) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

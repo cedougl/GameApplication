@@ -86,7 +86,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteMatch", "Matches", FormMethod.Post)) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

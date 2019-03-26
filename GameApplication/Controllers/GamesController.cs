@@ -2,16 +2,20 @@
 using GameApplication.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GameApplication.Controllers
 {
+    /// <summary>
+    /// GamesController - Controller for all game related requests
+    /// </summary>
     public class GamesController : Controller
     {
-        // GET: Games
+        /// <summary>
+        /// Index - Calls the web API to get a list of games
+        /// </summary>
+        /// <returns>ViewResult with the list of games</returns>
         [HttpGet]
         public ActionResult Index()
         {
@@ -23,27 +27,31 @@ namespace GameApplication.Controllers
             return View(games);
         }
 
-        public ActionResult Statistics(long gameId)
-        {
-            ServiceRepository service = new ServiceRepository();
-            HttpResponseMessage response = service.GetResponse("api/v1/statistics?gameId=" + gameId.ToString());
-            response.EnsureSuccessStatusCode();
-            List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
-            ViewBag.Title = "Game Statistics";
-            return View(stats);
-        }
+        //public ActionResult Statistics(long gameId)
+        //{
+        //    ServiceRepository service = new ServiceRepository();
+        //    HttpResponseMessage response = service.GetResponse("api/v1/statistics?gameId=" + gameId.ToString());
+        //    response.EnsureSuccessStatusCode();
+        //    List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
+        //    ViewBag.Title = "Game Statistics";
+        //    return View(stats);
+        //}
 
-        public ActionResult Achievements(long gameId)
-        {
-            ServiceRepository service = new ServiceRepository();
-            HttpResponseMessage response = service.GetResponse("api/v1/achievements?gameId=" + gameId.ToString());
-            response.EnsureSuccessStatusCode();
-            List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
-            ViewBag.Title = "Game Achievements";
-            return View(achievements);
-        }
+        //public ActionResult Achievements(long gameId)
+        //{
+        //    ServiceRepository service = new ServiceRepository();
+        //    HttpResponseMessage response = service.GetResponse("api/v1/achievements?gameId=" + gameId.ToString());
+        //    response.EnsureSuccessStatusCode();
+        //    List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
+        //    ViewBag.Title = "Game Achievements";
+        //    return View(achievements);
+        //}
 
-        // GET: Games/Details/5
+        /// <summary>
+        /// Details - Calls web API to get a specific game object
+        /// </summary>
+        /// <param name="id">Game ID to find</param>
+        /// <returns>ViewResult with specific game object</returns>
         [HttpGet]
         public ActionResult Details(int id)
         {
@@ -55,7 +63,11 @@ namespace GameApplication.Controllers
             return View(game);
         }
 
-        // GET: Games/Edit/5
+        /// <summary>
+        /// Details - Calls web API to get a specific game object for editing
+        /// </summary>
+        /// <param name="id">Game ID to find</param>
+        /// <returns>ViewResult with specific game object</returns>
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -67,6 +79,11 @@ namespace GameApplication.Controllers
             return View(game);
         }
 
+        /// <summary>
+        /// Update - Calls the web API to update a game object
+        /// </summary>
+        /// <param name="game">Game object to be used for the update</param>
+        /// <returns>RedirectToRouteResult to the index action after the update</returns>
         [HttpPut]
         public ActionResult Update(Game game)
         {
@@ -80,18 +97,23 @@ namespace GameApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Games/Create
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Create - Calls the web API to add a game object
+        /// </summary>
+        /// <param name="game">Game object to be added</param>
+        /// <returns>RedirectToRouteResult to the index action after the create</returns>
         [HttpPost]
         public ActionResult Create(Game game)
         {
             ServiceRepository service = new ServiceRepository();
 
+            // Set the creation and update time to now
             game.CreateTime = DateTime.Now;
             game.UpdateTime = DateTime.Now;
             game.CreatedBy = 1;
@@ -102,7 +124,11 @@ namespace GameApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Games/Delete/5
+        /// <summary>
+        /// Delete - Calls web API to get a specific game object for deletion
+        /// </summary>
+        /// <param name="id">Game ID to find</param>
+        /// <returns>ViewResult with specific game object</returns>
         [HttpGet]
         public ActionResult Delete(int id)
         {
@@ -114,9 +140,13 @@ namespace GameApplication.Controllers
             return View(game);
         }
 
-        // GET: Games/Delete/5
+        /// <summary>
+        /// DeleteGame - Calls the web API to delete a game
+        /// </summary>
+        /// <param name="id">Game ID of the object to be deleted</param>
+        /// <returns>RedirectToRouteResult to the index action after the delete</returns>
         [HttpDelete]
-        public ActionResult DeletePlayer(int id)
+        public ActionResult DeleteGame(int id)
         {
             ServiceRepository service = new ServiceRepository();
             HttpResponseMessage response = service.DeleteResponse("api/v1/games?id=" + id.ToString());

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using GameApplication.Repository;
 using GameApplication.Models;
@@ -9,36 +7,83 @@ using System.Net.Http;
 
 namespace GameApplication.Controllers
 {
+    /// <summary>
+    /// PlayersController - Controller for all player requests
+    /// </summary>
     public class PlayersController : Controller
     {
-        // GET: Players
+        /// <summary>
+        /// Index - Calls the web API to get a list of players based on criteria in the parameters
+        /// </summary>
+        /// <param name="sortColumnName">Column name to sort players by</param>
+        /// <param name="orderBy">Sort order - Ascending or descending</param>
+        /// <param name="searchString">String to search for in the first name and last name</param>
+        /// <returns>ViewResult with the list of players</returns>
+        [HttpGet]
+        public ActionResult Index(string sortColumnName, string orderBy, string searchString)
+        {
+            ServiceRepository service = new ServiceRepository();
+
+            string url = "";
+
+            // Neither sorting or search string was specified
+            if (string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
+            {
+                url = "api/v1/players";
+            }
+            // Search string and sorting
+            else if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
+            {
+                url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString;
+            }
+            // Sorting
+            else if (!string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
+            {
+                url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy;
+            }
+            // Search string
+            else if (string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
+            {
+                url = "api/v1/players?searchString=" + searchString;
+            }
+
+            // Call the web API with the URL we have built based on the criteria
+            HttpResponseMessage response = service.GetResponse(url);
+            response.EnsureSuccessStatusCode();
+            List<Player> players = response.Content.ReadAsAsync<List<Player>>().Result;
+            ViewBag.Title = "Players";
+
+            return View(players);
+        }
+
         //[HttpGet]
-        //public ActionResult Index(string sortColumnName, string orderBy, string searchString)
+        //public ActionResult Index(string sortColumnName, string orderBy, string searchString, int limit, int offset)
         //{
         //    ServiceRepository service = new ServiceRepository();
 
-        //    string url = "";
+        //    string url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString +
+        //        "&limit=" + limit.ToString() + "&offset=" + offset.ToString();
 
         //    // Neither sorting or search string was specified
-        //    if (string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-        //    {
-        //        url = "api/v1/players";
-        //    }
-        //    // Search string and sorting
-        //    else if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-        //    {
-        //        url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString;
-        //    }
-        //    // Sorting
-        //    else if (!string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-        //    {
-        //        url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy;
-        //    }
-        //    // Search string
-        //    else if (string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-        //    {
-        //        url = "api/v1/players?searchString=" + searchString;
-        //    }
+        //    //if (string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    url = "api/v1/players";
+        //    //}
+        //    //// Search string and sorting
+        //    //else if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString;
+        //    //}
+        //    //// Sorting
+        //    //else if (!string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy;
+        //    //}
+        //    //// Search string
+        //    //else if (string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    url = "api/v1/players?searchString=" + searchString;
+        //    //}
 
 
         //    HttpResponseMessage response = service.GetResponse(url);
@@ -49,45 +94,11 @@ namespace GameApplication.Controllers
         //    return View(players);
         //}
 
-        [HttpGet]
-        public ActionResult Index(string sortColumnName, string orderBy, string searchString, int limit, int offset)
-        {
-            ServiceRepository service = new ServiceRepository();
-
-            string url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString +
-                "&limit=" + limit.ToString() + "&offset=" + offset.ToString();
-
-            // Neither sorting or search string was specified
-            //if (string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-            //{
-            //    url = "api/v1/players";
-            //}
-            //// Search string and sorting
-            //else if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-            //{
-            //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy + "&search=" + searchString;
-            //}
-            //// Sorting
-            //else if (!string.IsNullOrEmpty(sortColumnName) && string.IsNullOrEmpty(searchString))
-            //{
-            //    url = "api/v1/players?sortColumn=" + sortColumnName + "&orderBy=" + orderBy;
-            //}
-            //// Search string
-            //else if (string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(searchString))
-            //{
-            //    url = "api/v1/players?searchString=" + searchString;
-            //}
-
-
-            HttpResponseMessage response = service.GetResponse(url);
-            response.EnsureSuccessStatusCode();
-            List<Player> players = response.Content.ReadAsAsync<List<Player>>().Result;
-            ViewBag.Title = "Players";
-
-            return View(players);
-        }
-
-        // GET: Players/Details/5
+        /// <summary>
+        /// Details - Calls the web API to get the details for a specific player
+        /// </summary>
+        /// <param name="id">Player ID to find</param>
+        /// <returns>ViewResult with the specific player object</returns>
         [HttpGet]
         public ActionResult Details(int id)
         {
@@ -99,27 +110,31 @@ namespace GameApplication.Controllers
             return View(player);
         }
 
-        public ActionResult Statistics(long playerId)
-        {
-            ServiceRepository service = new ServiceRepository();
-            HttpResponseMessage response = service.GetResponse("api/v1/statistics?playerId=" + playerId.ToString());
-            response.EnsureSuccessStatusCode();
-            List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
-            ViewBag.Title = "Player Statistics";
-            return View(stats);
-        }
+        //public ActionResult Statistics(long playerId)
+        //{
+        //    ServiceRepository service = new ServiceRepository();
+        //    HttpResponseMessage response = service.GetResponse("api/v1/statistics?playerId=" + playerId.ToString());
+        //    response.EnsureSuccessStatusCode();
+        //    List<Statistic> stats = response.Content.ReadAsAsync<List<Statistic>>().Result;
+        //    ViewBag.Title = "Player Statistics";
+        //    return View(stats);
+        //}
 
-        public ActionResult Achievements(long playerId)
-        {
-            ServiceRepository service = new ServiceRepository();
-            HttpResponseMessage response = service.GetResponse("api/v1/achievements?playerId=" + playerId.ToString());
-            response.EnsureSuccessStatusCode();
-            List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
-            ViewBag.Title = "Player Achievements";
-            return View(achievements);
-        }
+        //public ActionResult Achievements(long playerId)
+        //{
+        //    ServiceRepository service = new ServiceRepository();
+        //    HttpResponseMessage response = service.GetResponse("api/v1/achievements?playerId=" + playerId.ToString());
+        //    response.EnsureSuccessStatusCode();
+        //    List<Achievement> achievements = response.Content.ReadAsAsync<List<Achievement>>().Result;
+        //    ViewBag.Title = "Player Achievements";
+        //    return View(achievements);
+        //}
 
-        // GET: Players/Edit/5
+        /// <summary>
+        /// Details - Calls the web API to get the details for a specific player to be edited
+        /// </summary>
+        /// <param name="id">Player ID to find</param>
+        /// <returns>ViewResult with the specific player object</returns>
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -131,11 +146,17 @@ namespace GameApplication.Controllers
             return View(player);
         }
 
+        /// <summary>
+        /// Update - Calls the web API to update a player object
+        /// </summary>
+        /// <param name="player">Player object to be used for the update</param>
+        /// <returns>RedirectToRouteResult to the index action after the update</returns>
         [HttpPut]  
         public ActionResult Update(Player player)
         {
             ServiceRepository service = new ServiceRepository();
 
+            // Set the update time to now
             player.UpdateTime = DateTime.Now;
             player.UpdatedBy = 1;
 
@@ -144,20 +165,26 @@ namespace GameApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Players/Create
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Update - Calls the web API to add a player object
+        /// </summary>
+        /// <param name="player">Player object to be added</param>
+        /// <returns>RedirectToRouteResult to the index action after the update</returns>
         [HttpPost]
         public ActionResult Create(Player player)
         {
             ServiceRepository service = new ServiceRepository();
 
+            // Set the creation and update time to now
             player.CreateTime = DateTime.Now;
             player.UpdateTime = DateTime.Now;
+            // Hard code the CreatedBy and UpdatedBy user ID for now, until we add user authentication
             player.CreatedBy = 1;
             player.UpdatedBy = 1;
 
@@ -166,7 +193,11 @@ namespace GameApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Players/Delete/5
+        /// <summary>
+        /// Details - Calls the web API to get the details for a specific player to be deleted
+        /// </summary>
+        /// <param name="id">Player ID to find</param>
+        /// <returns>ViewResult with the specific player object</returns>
         [HttpGet]
         public ActionResult Delete(int id)
         {
@@ -178,7 +209,11 @@ namespace GameApplication.Controllers
             return View(player);
         }
 
-        // GET: Players/Delete/5
+        /// <summary>
+        /// DeletePlayer - Calls the web API to delete a player
+        /// </summary>
+        /// <param name="id">Player ID of the object to be deleted</param>
+        /// <returns>RedirectToRouteResult to the index action after the delete</returns>
         [HttpDelete]
         public ActionResult DeletePlayer(int id)
         {

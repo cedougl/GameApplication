@@ -1,17 +1,21 @@
 ﻿using GameApplication.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
 using GameApplication.Models;
 
 namespace GameApplication.Controllers
 {
+    /// <summary>
+    /// StatisticsController - Controller for all statistics requests
+    /// </summary>
     public class StatisticsController : Controller
     {
-        // GET: Statistics
+        /// <summary>
+        /// Index - Calls the web API to get all statistics records and returns them to the view
+        /// </summary>
+        /// <returns>ViewResult with a list of statistics</returns>
         [HttpGet]
         public ActionResult Index()
         {
@@ -23,6 +27,11 @@ namespace GameApplication.Controllers
             return View(stats);
         }
 
+        /// <summary>
+        /// IndexByGameId - Calls the web API to get all statistics for a particular game
+        /// </summary>
+        /// <param name="gameId">Game ID to find</param>
+        /// <returns>ViewResult with a list of statistics for the specific game ID</returns>
         [HttpGet]
         public ActionResult IndexByGameId(int gameId)
         {
@@ -34,6 +43,11 @@ namespace GameApplication.Controllers
             return View(stats);
         }
 
+        /// <summary>
+        /// IndexByPlayerId - Calls the web API to get all statistics for a particular player
+        /// </summary>
+        /// <param name="gameId">Player ID to find</param>
+        /// <returns>ViewResult with a list of statistics for the specific player ID</returns>
         [HttpGet]
         public ActionResult IndexByPlayerId(int playerId)
         {
@@ -45,7 +59,11 @@ namespace GameApplication.Controllers
             return View(stats);
         }
 
-        // GET: Statistics/Details/5
+        /// <summary>
+        /// Details - Calls the web API to get the statistic by ID
+        /// </summary>
+        /// <param name="id">Statistic ID to find</param>
+        /// <returns>ViewResult with a statistic object for the specific ID</returns>
         [HttpGet]
         public ActionResult Details(int id)
         {
@@ -57,7 +75,11 @@ namespace GameApplication.Controllers
             return View(stat);
         }
 
-        // GET: Statistics/Edit/5
+        /// <summary>
+        /// Details - Calls the web API to get the statistic by ID for editing
+        /// </summary>
+        /// <param name="id">Statistic ID to find</param>
+        /// <returns>ViewResult with a statistic object for the specific ID</returns>
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -69,6 +91,11 @@ namespace GameApplication.Controllers
             return View(stat);
         }
 
+        /// <summary>
+        /// Update - Calls the web API to update the statistic object
+        /// </summary>
+        /// <param name="stat">Statistic object to be used for the update</param>
+        /// <returns>RedirectToRouteResult to the Index action once the update was successful</returns>
         [HttpPut]
         public ActionResult Update(Statistic stat)
         {
@@ -82,29 +109,40 @@ namespace GameApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Statistics/Create
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Create - Calls the web API to add a new Statistic
+        /// </summary>
+        /// <param name="stat">Statistic object to be created</param>
+        /// <returns>RedirectToRouteResult to the Index action after successful creation</returns>
         [HttpPost]
         public ActionResult Create(Statistic stat)
         {
             ServiceRepository service = new ServiceRepository();
 
+            // Set the creation and update time to now
             stat.CreateTime = DateTime.Now;
             stat.UpdateTime = DateTime.Now;
+            // Hard code the CreatedBy and UpdatedBy user ID for now, until we add user authentication
             stat.CreatedBy = 1;
             stat.UpdatedBy = 1;
 
+            // Call the web API
             HttpResponseMessage response = service.PostResponse("api/v1/statistics", stat);
             response.EnsureSuccessStatusCode();
             return RedirectToAction("Index");
         }
 
-        // GET: Statistics/Delete/5
+        /// <summary>
+        /// Delete - Calls the web API to get a particular Statisic for deletion
+        /// </summary>
+        /// <param name="id">Statistic ID to find</param>
+        /// <returns>ViewResult with the specific Statistic object</returns>
         [HttpGet]
         public ActionResult Delete(int id)
         {
@@ -116,9 +154,13 @@ namespace GameApplication.Controllers
             return View(stat);
         }
 
-        // GET: Statistics/Delete/5
+        /// <summary>
+        /// DeleteStatistic - Calls the web API to deletes a statistic object
+        /// </summary>
+        /// <param name="id">ID of the statistic object to be deleted</param>
+        /// <returns>RedirectToRouteResult to the Index action after the delete</returns>
         [HttpDelete]
-        public ActionResult DeletePlayer(int id)
+        public ActionResult DeleteStatistic(int id)
         {
             ServiceRepository service = new ServiceRepository();
             HttpResponseMessage response = service.DeleteResponse("api/v1/statistics?id=" + id.ToString());
