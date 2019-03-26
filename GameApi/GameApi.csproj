@@ -215,7 +215,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinqExtensions.cs" />
     <Compile Include="Controllers\MatchesController.cs" />
-    <Compile Include="Controllers\PaginatedList.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
