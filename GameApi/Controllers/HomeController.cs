@@ -8,6 +8,10 @@ namespace GameApi.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Index - Home page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

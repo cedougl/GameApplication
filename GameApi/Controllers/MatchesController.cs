@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -14,24 +12,38 @@ using Microsoft.Web.Http;
 
 namespace GameApi.Controllers
 {
+    /// <summary>
+    /// The MatchesController class contains all of the Web API methods related to matches
+    /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/matches")]
     public class MatchesController : ApiController
     {
+        // Database context
         private GameDbContext db = new GameDbContext();
 
-        // GET: api/Matches
+        /// <summary>
+        /// GetMatches - Gets all matches
+        /// </summary>
+        /// <returns>List of matches</returns>
+        // GET: api/v1/Matches
         [HttpGet]
         public IQueryable<Match> GetMatches()
         {
             return db.Matches;
         }
 
-        // GET: api/Matches/5
+        /// <summary>
+        /// GetMatch - Gets a match with a specific ID
+        /// </summary>
+        /// <param name="id">ID to find</param>
+        /// <returns>Match object with the given ID</returns>
+        // GET: api/v1/Matches?id=5
         [HttpGet]
         [ResponseType(typeof(Match))]
         public async Task<IHttpActionResult> GetMatch(long id)
         {
+            // Find the match with the given ID
             Match match = await db.Matches.FindAsync(id);
             if (match == null)
             {
@@ -41,11 +53,17 @@ namespace GameApi.Controllers
             return Ok(match);
         }
 
-        // GET: api/Matches?playerId=5
+        /// <summary>
+        /// GetPlayerMatches - Gets the matches for a given player using the player ID
+        /// </summary>
+        /// <param name="playerId">Player ID to find</param>
+        /// <returns>List of matches for a given player</returns>
+        // GET: api/v1/Matches?playerId=5
         [HttpGet]
         [ResponseType(typeof(List<Match>))]
         public async Task<IHttpActionResult> GetPlayerMatches(long playerId)
         {
+            // Find the matches with the given player ID
             List<Match> matches = await db.Matches.Where(x => x.PlayerId == playerId).ToListAsync();
             if (matches == null)
             {
@@ -55,11 +73,17 @@ namespace GameApi.Controllers
             return Ok(matches);
         }
 
-        // GET: api/Matches?gameId=5
+        /// <summary>
+        /// GetGameMatches - Gets the matches for a given game using the ID
+        /// </summary>
+        /// <param name="gameId">Game ID to find</param>
+        /// <returns>List of matches for a given game ID</returns>
+        // GET: api/v1/Matches?gameId=5
         [HttpGet]
         [ResponseType(typeof(List<Match>))]
         public async Task<IHttpActionResult> GetGameMatches(long gameId)
         {
+            // Find the matches with the given game ID
             List<Match> matches = await db.Matches.Where(x => x.GameId == gameId).ToListAsync();
             if (matches == null)
             {
@@ -69,6 +93,12 @@ namespace GameApi.Controllers
             return Ok(matches);
         }
 
+        /// <summary>
+        /// UpdateMatch - Updates a match with a given ID
+        /// </summary>
+        /// <param name="id">ID to find</param>
+        /// <param name="match">Match object to use for the update</param>
+        /// <returns>Status</returns>
         // PUT: api/Matches/5
         [HttpPut]
         [ResponseType(typeof(void))]
@@ -79,6 +109,7 @@ namespace GameApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Make sure the IDs match
             if (id != match.Id)
             {
                 return BadRequest();
@@ -88,6 +119,7 @@ namespace GameApi.Controllers
 
             try
             {
+                // Save the changes
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -105,7 +137,12 @@ namespace GameApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Matches
+        /// <summary>
+        /// AddMatch - Creates and adds a match to the database
+        /// </summary>
+        /// <param name="match">Match object to be added</param>
+        /// <returns>Status</returns>
+        // POST: api/v1/Matches
         [HttpPost]
         [ResponseType(typeof(Match))]
         public async Task<IHttpActionResult> AddMatch(Match match)
@@ -115,29 +152,34 @@ namespace GameApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Add the match
             db.Matches.Add(match);
+            // Save the changes
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = match.Id }, match);
+            return Content(HttpStatusCode.Created, "Created");
         }
 
         /// <summary>
-        /// 
+        /// DeleteMatch - Deletes a match with a given ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        // DELETE: api/Matches/5
+        /// <param name="id">ID to find</param>
+        /// <returns>The match object deleted</returns>
+        // DELETE: api/v1/Matches?id=5
         [HttpDelete]
         [ResponseType(typeof(Match))]
         public async Task<IHttpActionResult> DeleteMatch(long id)
         {
+            // Find the match by ID
             Match match = await db.Matches.FindAsync(id);
             if (match == null)
             {
                 return NotFound();
             }
 
+            // Remove the match
             db.Matches.Remove(match);
+            // Save the changes
             await db.SaveChangesAsync();
 
             return Ok(match);

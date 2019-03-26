@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -14,24 +10,38 @@ using Microsoft.Web.Http;
 
 namespace GameApi.Controllers
 {
+    /// <summary>
+    /// The GamesController class contains all of the Web API methods related to games
+    /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/games")]
     public class GamesController : ApiController
     {
+        // Database context
         private GameDbContext db = new GameDbContext();
 
-        // GET: api/Games
+        /// <summary>
+        /// GetGames - Gets all games
+        /// </summary>
+        /// <returns>List of games</returns>
+        // GET: api/v1/Games
         [HttpGet]
         public IQueryable<Game> GetGames()
         {
             return db.Games;
         }
 
-        // GET: api/Games/5
+        /// <summary>
+        /// GetGame - Gets a game by ID
+        /// </summary>
+        /// <param name="id">Game ID to find</param>
+        /// <returns>Game object with the given ID</returns>
+        // GET: api/v1/Games?id=5
         [HttpGet]
         [ResponseType(typeof(Game))]
         public async Task<IHttpActionResult> GetGame(long id)
         {
+            // Find the game by ID
             Game game = await db.Games.FindAsync(id);
             if (game == null)
             {
@@ -41,7 +51,13 @@ namespace GameApi.Controllers
             return Ok(game);
         }
 
-        // PUT: api/Games/5
+        /// <summary>
+        /// UpdateGame - Updates the game by using the ID
+        /// </summary>
+        /// <param name="id">Game ID to find</param>
+        /// <param name="game">Game object to use for the update</param>
+        /// <returns>Status</returns>
+        // PUT: api/v1/Games/5
         [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> UpdateGame(long id, Game game)
@@ -51,6 +67,7 @@ namespace GameApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Validate IDs are the same
             if (id != game.Id)
             {
                 return BadRequest();
@@ -60,6 +77,7 @@ namespace GameApi.Controllers
 
             try
             {
+                // Save the changes
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -77,7 +95,12 @@ namespace GameApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Games
+        /// <summary>
+        /// AddGame - Adds the game object to the database 
+        /// </summary>
+        /// <param name="game">Game object to be added</param>
+        /// <returns>Status</returns>
+        // POST: api/v1/Games
         [HttpPost]
         [ResponseType(typeof(Game))]
         public async Task<IHttpActionResult> AddGame(Game game)
@@ -87,25 +110,34 @@ namespace GameApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Add the game
             db.Games.Add(game);
+            // Save the changes
             await db.SaveChangesAsync();
 
-            //return CreatedAtRoute("DefaultApi", new { id = game.Id }, game);
             return Content(HttpStatusCode.Created, "Game created");
         }
 
-        // DELETE: api/Games/5
+        /// <summary>
+        /// DeleteGame - Deletes the game by ID
+        /// </summary>
+        /// <param name="id">ID of the game to be deleted</param>
+        /// <returns>The game object deleted</returns>
+        // DELETE: api/v1/Games?id=5
         [HttpDelete]
         [ResponseType(typeof(Game))]
         public async Task<IHttpActionResult> DeleteGame(long id)
         {
+            // Find the game to be deleted by ID
             Game game = await db.Games.FindAsync(id);
             if (game == null)
             {
                 return NotFound();
             }
 
+            // Remove the game
             db.Games.Remove(game);
+            // Save the changes
             await db.SaveChangesAsync();
 
             return Ok(game);
@@ -120,6 +152,11 @@ namespace GameApi.Controllers
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// GameExists - Determines if a game with agiven ID exists
+        /// </summary>
+        /// <param name="id">ID to find</param>
+        /// <returns>true if the game exists; false otherwise</returns>
         private bool GameExists(long id)
         {
             return db.Games.Count(e => e.Id == id) > 0;
