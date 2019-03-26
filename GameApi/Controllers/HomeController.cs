@@ -9,7 +9,7 @@ namespace GameApi.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// Index - Home page
+        /// Home page
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()

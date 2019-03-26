@@ -23,7 +23,7 @@ namespace GameApi.Controllers
         private GameDbContext db = new GameDbContext();
 
         /// <summary>
-        /// GetPlayers - Gets all players
+        /// Gets all players
         /// </summary>
         /// <returns>List of players</returns>
         // GET: api/v1/Players
@@ -34,7 +34,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayers - Gets a limited number of players at a given page offset.  This is used for paging on the client. 
+        /// Gets a limited number of players at a given page offset.  This is used for paging on the client. 
         /// </summary>
         /// <param name="limit">Number of records to take at a time</param>
         /// <param name="offset">The page number offset</param>
@@ -51,7 +51,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayers - Gets players whose first name or last name contain a given search string 
+        /// Gets players whose first name or last name contain a given search string 
         /// </summary>
         /// <param name="searchString">The search string to look for in the first and last name</param>
         /// <returns>List of players whose first name or last name contain the search string</returns>
@@ -73,7 +73,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayers - Gets a list of players sorted by the given column name and in the given order. 
+        /// Gets a list of players sorted by the given column name and in the given order. 
         /// </summary>
         /// <param name="sortColumn">Column name to sort by</param>
         /// <param name="orderBy">Sort order - Ascending (ASC) or descending (DESC)</param>
@@ -96,8 +96,8 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayers - Gets a list of players utilizing paging, sorting, and searching options all at once.  If parameters are
-        ///              null then they are not applied.
+        /// Gets a list of players utilizing paging, sorting, and searching options all at once.  If parameters are
+        /// null then they are not applied.
         /// </summary>
         /// <param name="sortColumn">Column name to sort by</param>
         /// <param name="orderBy">Sort order - Ascending (ASC) or Descending (DESC)</param>
@@ -144,7 +144,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayer - Gets the player with a given ID
+        /// Gets the player with a given ID
         /// </summary>
         /// <param name="id">ID of the player</param>
         /// <returns>Player with the given ID</returns>
@@ -165,7 +165,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// UpdatePlayer - Update the player with a given ID
+        /// Update the player with a given ID
         /// </summary>
         /// <param name="id">ID of the player to be updated</param>
         /// <param name="player">Player object used to update the player</param>
@@ -209,7 +209,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AddPlayer - Adds a player to the database
+        /// Adds a player to the database
         /// </summary>
         /// <param name="player">Player object to be added to the database</param>
         /// <returns>Status</returns>
@@ -232,7 +232,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// DeletePlayer - Deletes the player with the given ID
+        /// Deletes the player with the given ID
         /// </summary>
         /// <param name="id">ID of the player to be deleted</param>
         /// <returns>Player deleted</returns>
@@ -266,7 +266,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// PlayerExists - Determines if a player exists given an ID
+        /// Determines if a player exists given an ID
         /// </summary>
         /// <param name="id">ID to search for</param>
         /// <returns>true if the player ID exists</returns>

@@ -13,7 +13,7 @@ namespace GameApplication.Controllers
     public class AchievementsController : Controller
     {
         /// <summary>
-        /// Index - Calls the web API to get a list of achievements
+        /// Calls the web API to get a list of achievements
         /// </summary>
         /// <returns>ActionResult with the list of achievements</returns>
         [HttpGet]
@@ -28,7 +28,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByGameId - Calls the web API to get a list of achievements for a particular game
+        /// Calls the web API to get a list of achievements for a particular game
         /// </summary>
         /// <returns>ActionResult with the list of achievements for the specific game ID</returns>
         [HttpGet]
@@ -43,7 +43,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByPlayerId - Calls the web API to get a list of achievements for a particular player
+        /// Calls the web API to get a list of achievements for a particular player
         /// </summary>
         /// <returns>ActionResult with the list of achievements for the specific game ID</returns>
         [HttpGet]
@@ -58,7 +58,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific achievement
+        /// Calls the web API to get the details for a specific achievement
         /// </summary>
         /// <param name="id">Achievement ID to find</param>
         /// <returns>ViewResult for the specific achievement</returns>
@@ -74,7 +74,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific achievement for editing
+        /// Calls the web API to get the details for a specific achievement for editing
         /// </summary>
         /// <param name="id">Achievement ID to find</param>
         /// <returns>ViewResult for the specific achievement</returns>
@@ -90,7 +90,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to update an achievement object
+        /// Calls the web API to update an achievement object
         /// </summary>
         /// <param name="achievement">Achievement object to be used for the update</param>
         /// <returns>RedirectToRouteResult to the index action after the update</returns>
@@ -115,7 +115,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Create - Calls the web API to update an achievement object
+        /// Calls the web API to update an achievement object
         /// </summary>
         /// <param name="achievement">Achievement object to be added</param>
         /// <returns>RedirectToRouteResult to the index action after the create</returns>
@@ -136,7 +136,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Delete - Calls the web API to get the details for a specific achievement for deletion
+        /// Calls the web API to get the details for a specific achievement for deletion
         /// </summary>
         /// <param name="id">Achievement ID to find</param>
         /// <returns>ViewResult for the specific achievement</returns>
@@ -152,7 +152,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// DeleteAchievement - Calls the web API to delete an achievement
+        /// Calls the web API to delete an achievement
         /// </summary>
         /// <param name="id">Achievement ID of the object to be deleted</param>
         /// <returns>RedirectToRouteResult to the index action after the delete</returns>

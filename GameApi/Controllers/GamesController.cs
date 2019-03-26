@@ -21,7 +21,7 @@ namespace GameApi.Controllers
         private GameDbContext db = new GameDbContext();
 
         /// <summary>
-        /// GetGames - Gets all games
+        /// Gets all games
         /// </summary>
         /// <returns>List of games</returns>
         // GET: api/v1/Games
@@ -32,7 +32,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetGame - Gets a game by ID
+        /// Gets a game by ID
         /// </summary>
         /// <param name="id">Game ID to find</param>
         /// <returns>Game object with the given ID</returns>
@@ -52,7 +52,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// UpdateGame - Updates the game by using the ID
+        /// Updates the game by using the ID
         /// </summary>
         /// <param name="id">Game ID to find</param>
         /// <param name="game">Game object to use for the update</param>
@@ -96,7 +96,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AddGame - Adds the game object to the database 
+        /// Adds the game object to the database 
         /// </summary>
         /// <param name="game">Game object to be added</param>
         /// <returns>Status</returns>
@@ -119,7 +119,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// DeleteGame - Deletes the game by ID
+        /// Deletes the game by ID
         /// </summary>
         /// <param name="id">ID of the game to be deleted</param>
         /// <returns>The game object deleted</returns>
@@ -153,7 +153,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GameExists - Determines if a game with agiven ID exists
+        /// Determines if a game with agiven ID exists
         /// </summary>
         /// <param name="id">ID to find</param>
         /// <returns>true if the game exists; false otherwise</returns>

@@ -13,7 +13,7 @@ namespace GameApplication.Controllers
     public class MatchesController : Controller
     {
         /// <summary>
-        /// Index - Calls the web API to get a list of matches
+        /// Calls the web API to get a list of matches
         /// </summary>
         /// <returns>ActionResult with a list of matches</returns>
         [HttpGet]
@@ -28,7 +28,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByGameId - Calls the web API to get a list of matches for a particular game
+        /// Calls the web API to get a list of matches for a particular game
         /// </summary>
         /// <returns>ActionResult with a list of matches with the game ID specified</returns>
         [HttpGet]
@@ -43,7 +43,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByPlayerId - Calls the web API to get a list of matches for a particular player
+        /// Calls the web API to get a list of matches for a particular player
         /// </summary>
         /// <returns>ActionResult with a list of matches with the player ID specified</returns>
         [HttpGet]
@@ -58,7 +58,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific match
+        /// Calls the web API to get the details for a specific match
         /// </summary>
         /// <param name="id">Match ID to find</param>
         /// <returns>ViewResult with the specific match object</returns>
@@ -74,7 +74,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific match for editing
+        /// Calls the web API to get the details for a specific match for editing
         /// </summary>
         /// <param name="id">Match ID to find</param>
         /// <returns>ViewResult with the specific match object</returns>
@@ -90,7 +90,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to update a specific match object
+        /// Calls the web API to update a specific match object
         /// </summary>
         /// <param name="match">Match object to be used for the update</param>
         /// <returns>RedirectToRouteResult to the index action after the update</returns>
@@ -116,7 +116,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Create - Calls the web API to add a match object
+        /// Calls the web API to add a match object
         /// </summary>
         /// <param name="match">Match object to be added</param>
         /// <returns>RedirectToRouteResult to the index action after the create</returns>
@@ -137,7 +137,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Delete - Calls the web API to get the details for a specific match for deleting
+        /// Calls the web API to get the details for a specific match for deleting
         /// </summary>
         /// <param name="id">Match ID to find</param>
         /// <returns>ViewResult with the specific match object</returns>
@@ -153,7 +153,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// DeleteMatch - Calls the web API to delete a match object
+        /// Calls the web API to delete a match object
         /// </summary>
         /// <param name="id">Match ID of the object to be deleted</param>
         /// <returns>RedirectToRouteResult to the index action after the delete</returns>

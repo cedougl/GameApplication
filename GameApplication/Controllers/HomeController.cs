@@ -5,7 +5,7 @@ namespace GameApplication.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// Index - Home page
+        /// Home page
         /// </summary>
         /// <returns>ViewResult</returns>
         public ActionResult Index()
@@ -14,7 +14,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// About - About view
+        /// About view
         /// </summary>
         /// <returns>ViewResult</returns>
         public ActionResult About()
@@ -25,7 +25,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Contact - Contact view
+        /// Contact view
         /// </summary>
         /// <returns>ViewResult</returns>
         public ActionResult Contact()

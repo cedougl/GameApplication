@@ -23,7 +23,7 @@ namespace GameApi.Controllers
         private GameDbContext db = new GameDbContext();
 
         /// <summary>
-        /// GetAchievements - Gets all achievements
+        /// Gets all achievements
         /// </summary>
         /// <returns>List of achievements</returns>
         // GET: api/v1/Achievements
@@ -35,7 +35,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetAchievement - Gets an achievement by ID
+        /// Gets an achievement by ID
         /// </summary>
         /// <param name="id">ID of the achievement to be retrieved</param>
         /// <returns>Achievement object with the given ID</returns>
@@ -55,7 +55,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayerAchievements - Gets the achievements for a given player using the player ID
+        /// Gets the achievements for a given player using the player ID
         /// </summary>
         /// <param name="playerId">Player ID to find</param>
         /// <returns>List of achievements for a given player</returns>
@@ -75,7 +75,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetGameAchievements - Gets the achievements for a given game using the ID
+        /// Gets the achievements for a given game using the ID
         /// </summary>
         /// <param name="gameId">Game ID to find</param>
         /// <returns>List of achievements for a given game ID</returns>
@@ -95,7 +95,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// UpdateAchievement - Updates the achievement object with a given ID 
+        /// Updates the achievement object with a given ID 
         /// </summary>
         /// <param name="id">ID of the achievement object to be updated</param>
         /// <param name="achievement">Achievement object to be used for the update</param>
@@ -139,7 +139,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AddAchievement - Adds the achievement object to the database
+        /// Adds the achievement object to the database
         /// </summary>
         /// <param name="achievement">Achievement object to be added</param>
         /// <returns>Status</returns>
@@ -162,7 +162,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// DeleteAchievement - Deletes the achievement by id
+        /// Deletes the achievement by id
         /// </summary>
         /// <param name="id">ID of the achievement to be deleted</param>
         /// <returns>Achievement object deleted</returns>
@@ -195,7 +195,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AchievementExists - Determines if an achievement exists with the given ID
+        /// Determines if an achievement exists with the given ID
         /// </summary>
         /// <param name="id">ID to find</param>
         /// <returns>true if the achievement exists; false otherwise</returns>

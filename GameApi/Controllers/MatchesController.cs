@@ -23,7 +23,7 @@ namespace GameApi.Controllers
         private GameDbContext db = new GameDbContext();
 
         /// <summary>
-        /// GetMatches - Gets all matches
+        /// Gets all matches
         /// </summary>
         /// <returns>List of matches</returns>
         // GET: api/v1/Matches
@@ -34,7 +34,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetMatch - Gets a match with a specific ID
+        /// Gets a match with a specific ID
         /// </summary>
         /// <param name="id">ID to find</param>
         /// <returns>Match object with the given ID</returns>
@@ -54,7 +54,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayerMatches - Gets the matches for a given player using the player ID
+        /// Gets the matches for a given player using the player ID
         /// </summary>
         /// <param name="playerId">Player ID to find</param>
         /// <returns>List of matches for a given player</returns>
@@ -74,7 +74,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetGameMatches - Gets the matches for a given game using the ID
+        /// Gets the matches for a given game using the ID
         /// </summary>
         /// <param name="gameId">Game ID to find</param>
         /// <returns>List of matches for a given game ID</returns>
@@ -94,7 +94,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// UpdateMatch - Updates a match with a given ID
+        /// Updates a match with a given ID
         /// </summary>
         /// <param name="id">ID to find</param>
         /// <param name="match">Match object to use for the update</param>
@@ -138,7 +138,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AddMatch - Creates and adds a match to the database
+        /// Creates and adds a match to the database
         /// </summary>
         /// <param name="match">Match object to be added</param>
         /// <returns>Status</returns>
@@ -161,7 +161,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// DeleteMatch - Deletes a match with a given ID
+        /// Deletes a match with a given ID
         /// </summary>
         /// <param name="id">ID to find</param>
         /// <returns>The match object deleted</returns>

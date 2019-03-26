@@ -13,7 +13,7 @@ namespace GameApplication.Controllers
     public class GamesController : Controller
     {
         /// <summary>
-        /// Index - Calls the web API to get a list of games
+        /// Calls the web API to get a list of games
         /// </summary>
         /// <returns>ViewResult with the list of games</returns>
         [HttpGet]
@@ -48,7 +48,7 @@ namespace GameApplication.Controllers
         //}
 
         /// <summary>
-        /// Details - Calls web API to get a specific game object
+        /// Calls web API to get a specific game object
         /// </summary>
         /// <param name="id">Game ID to find</param>
         /// <returns>ViewResult with specific game object</returns>
@@ -64,7 +64,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls web API to get a specific game object for editing
+        /// Calls web API to get a specific game object for editing
         /// </summary>
         /// <param name="id">Game ID to find</param>
         /// <returns>ViewResult with specific game object</returns>
@@ -80,7 +80,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to update a game object
+        /// Calls the web API to update a game object
         /// </summary>
         /// <param name="game">Game object to be used for the update</param>
         /// <returns>RedirectToRouteResult to the index action after the update</returns>
@@ -104,7 +104,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Create - Calls the web API to add a game object
+        /// Calls the web API to add a game object
         /// </summary>
         /// <param name="game">Game object to be added</param>
         /// <returns>RedirectToRouteResult to the index action after the create</returns>
@@ -125,7 +125,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Delete - Calls web API to get a specific game object for deletion
+        /// Calls web API to get a specific game object for deletion
         /// </summary>
         /// <param name="id">Game ID to find</param>
         /// <returns>ViewResult with specific game object</returns>
@@ -141,7 +141,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// DeleteGame - Calls the web API to delete a game
+        /// Calls the web API to delete a game
         /// </summary>
         /// <param name="id">Game ID of the object to be deleted</param>
         /// <returns>RedirectToRouteResult to the index action after the delete</returns>

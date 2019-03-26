@@ -13,7 +13,7 @@ namespace GameApplication.Controllers
     public class StatisticsController : Controller
     {
         /// <summary>
-        /// Index - Calls the web API to get all statistics records and returns them to the view
+        /// Calls the web API to get all statistics records and returns them to the view
         /// </summary>
         /// <returns>ViewResult with a list of statistics</returns>
         [HttpGet]
@@ -28,7 +28,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByGameId - Calls the web API to get all statistics for a particular game
+        /// Calls the web API to get all statistics for a particular game
         /// </summary>
         /// <param name="gameId">Game ID to find</param>
         /// <returns>ViewResult with a list of statistics for the specific game ID</returns>
@@ -44,7 +44,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// IndexByPlayerId - Calls the web API to get all statistics for a particular player
+        /// Calls the web API to get all statistics for a particular player
         /// </summary>
         /// <param name="gameId">Player ID to find</param>
         /// <returns>ViewResult with a list of statistics for the specific player ID</returns>
@@ -60,7 +60,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the statistic by ID
+        /// Calls the web API to get the statistic by ID
         /// </summary>
         /// <param name="id">Statistic ID to find</param>
         /// <returns>ViewResult with a statistic object for the specific ID</returns>
@@ -76,7 +76,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the statistic by ID for editing
+        /// Calls the web API to get the statistic by ID for editing
         /// </summary>
         /// <param name="id">Statistic ID to find</param>
         /// <returns>ViewResult with a statistic object for the specific ID</returns>
@@ -92,7 +92,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to update the statistic object
+        /// Calls the web API to update the statistic object
         /// </summary>
         /// <param name="stat">Statistic object to be used for the update</param>
         /// <returns>RedirectToRouteResult to the Index action once the update was successful</returns>
@@ -116,7 +116,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Create - Calls the web API to add a new Statistic
+        /// Calls the web API to add a new Statistic
         /// </summary>
         /// <param name="stat">Statistic object to be created</param>
         /// <returns>RedirectToRouteResult to the Index action after successful creation</returns>
@@ -139,7 +139,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Delete - Calls the web API to get a particular Statisic for deletion
+        /// Calls the web API to get a particular Statisic for deletion
         /// </summary>
         /// <param name="id">Statistic ID to find</param>
         /// <returns>ViewResult with the specific Statistic object</returns>
@@ -155,7 +155,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// DeleteStatistic - Calls the web API to deletes a statistic object
+        /// Calls the web API to deletes a statistic object
         /// </summary>
         /// <param name="id">ID of the statistic object to be deleted</param>
         /// <returns>RedirectToRouteResult to the Index action after the delete</returns>

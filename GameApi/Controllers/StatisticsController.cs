@@ -23,7 +23,7 @@ namespace GameApi.Controllers
         private GameDbContext db = new GameDbContext();
 
         /// <summary>
-        /// GetStatistics - Gets all statistics
+        /// Gets all statistics
         /// </summary>
         /// <returns>List of statistics</returns>
         // GET: api/v1/Statistics
@@ -34,7 +34,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetStatistic - Gets a statistic object given an ID 
+        /// Gets a statistic object given an ID 
         /// </summary>
         /// <param name="id">ID to search for</param>
         /// <returns>Statistic object with the given ID</returns>
@@ -55,7 +55,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetPlayerStatistics - Get the statistics for a given player by using the ID
+        /// Get the statistics for a given player by using the ID
         /// </summary>
         /// <param name="playerId">Player ID to search for</param>
         /// <returns>List of statistics objects for a given player ID</returns>
@@ -75,7 +75,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// GetGameStatistics - Get the statistics for a given game by using the ID
+        /// Get the statistics for a given game by using the ID
         /// </summary>
         /// <param name="gameId">Game ID to search for</param>
         /// <returns>List of statistics objects for a given game ID</returns>
@@ -95,7 +95,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// UpdateStatistic - Updates the statistic object with a given ID
+        /// Updates the statistic object with a given ID
         /// </summary>
         /// <param name="id">ID of the statistic to be updated</param>
         /// <param name="statistic">Statistic object to use for the update</param>
@@ -139,7 +139,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// AddStatistic - Adds a statistic object to the database
+        /// Adds a statistic object to the database
         /// </summary>
         /// <param name="statistic">Statistic object to be added</param>
         /// <returns>Status</returns>
@@ -162,7 +162,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// DeleteStatistic - Deletes the statistic with a given ID
+        /// Deletes the statistic with a given ID
         /// </summary>
         /// <param name="id">ID of the statistic to be deleted</param>
         /// <returns></returns>
@@ -196,7 +196,7 @@ namespace GameApi.Controllers
         }
 
         /// <summary>
-        /// StatisticExists - Determines if a given statistic ID exists
+        /// Determines if a given statistic ID exists
         /// </summary>
         /// <param name="id">ID to search for</param>
         /// <returns>true if the statistic ID exists; false otherwise</returns>

@@ -13,7 +13,7 @@ namespace GameApplication.Controllers
     public class PlayersController : Controller
     {
         /// <summary>
-        /// Index - Calls the web API to get a list of players based on criteria in the parameters
+        /// Calls the web API to get a list of players based on criteria in the parameters
         /// </summary>
         /// <param name="sortColumnName">Column name to sort players by</param>
         /// <param name="orderBy">Sort order - Ascending or descending</param>
@@ -95,7 +95,7 @@ namespace GameApplication.Controllers
         //}
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific player
+        /// Calls the web API to get the details for a specific player
         /// </summary>
         /// <param name="id">Player ID to find</param>
         /// <returns>ViewResult with the specific player object</returns>
@@ -131,7 +131,7 @@ namespace GameApplication.Controllers
         //}
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific player to be edited
+        /// Calls the web API to get the details for a specific player to be edited
         /// </summary>
         /// <param name="id">Player ID to find</param>
         /// <returns>ViewResult with the specific player object</returns>
@@ -147,7 +147,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to update a player object
+        /// Calls the web API to update a player object
         /// </summary>
         /// <param name="player">Player object to be used for the update</param>
         /// <returns>RedirectToRouteResult to the index action after the update</returns>
@@ -172,7 +172,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Update - Calls the web API to add a player object
+        /// Calls the web API to add a player object
         /// </summary>
         /// <param name="player">Player object to be added</param>
         /// <returns>RedirectToRouteResult to the index action after the update</returns>
@@ -194,7 +194,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// Details - Calls the web API to get the details for a specific player to be deleted
+        /// Calls the web API to get the details for a specific player to be deleted
         /// </summary>
         /// <param name="id">Player ID to find</param>
         /// <returns>ViewResult with the specific player object</returns>
@@ -210,7 +210,7 @@ namespace GameApplication.Controllers
         }
 
         /// <summary>
-        /// DeletePlayer - Calls the web API to delete a player
+        /// Calls the web API to delete a player
         /// </summary>
         /// <param name="id">Player ID of the object to be deleted</param>
         /// <returns>RedirectToRouteResult to the index action after the delete</returns>
