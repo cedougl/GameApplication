@@ -1,0 +1,67 @@
+﻿@model GameApplication.Models.Statistic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Statistic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deaths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deaths)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Losses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Losses)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="javascript:history.back()">Back to List</a>
+</p>
