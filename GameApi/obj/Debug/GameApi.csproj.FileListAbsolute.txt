@@ -228,7 +228,6 @@ C:\dev\GameApplication\GameApi\obj\Debug\GameApi.csproj.GenerateResource.Cache
 C:\dev\GameApplication\GameApi\obj\Debug\GameApi.csproj.CoreCompileInputs.cache
 C:\dev\GameApplication\GameApi\obj\Debug\GameApi.dll
 C:\dev\GameApplication\GameApi\obj\Debug\GameApi.pdb
-C:\dev\GameApplication\GameApi\obj\Debug\GameApi.csprojResolveAssemblyReference.cache
 C:\dev\GameApplication\GameApi\bin\PagedList.dll
 C:\dev\GameApplication\GameApi\bin\PagedList.Mvc.dll
 C:\dev\GameApplication\GameApi\bin\PagedList.xml

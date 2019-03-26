@@ -6,6 +6,9 @@ using System.Web;
 
 namespace GameApi.Models
 {
+    /// <summary>
+    /// Database context object for the Game Management database
+    /// </summary>
     public class GameDbContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.

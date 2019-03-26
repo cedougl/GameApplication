@@ -180,7 +180,6 @@ C:\dev\GameApplication\GameApplication\bin\Microsoft.AI.Web.xml
 C:\dev\GameApplication\GameApplication\obj\Debug\GameApplication.csproj.CoreCompileInputs.cache
 C:\dev\GameApplication\GameApplication\obj\Debug\GameApplication.dll
 C:\dev\GameApplication\GameApplication\obj\Debug\GameApplication.pdb
-C:\dev\GameApplication\GameApplication\obj\Debug\GameApplication.csprojResolveAssemblyReference.cache
 C:\dev\GameApplication\GameApplication\bin\PagedList.dll
 C:\dev\GameApplication\GameApplication\bin\PagedList.Mvc.dll
 C:\dev\GameApplication\GameApplication\bin\PagedList.xml
