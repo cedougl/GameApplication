@@ -5,28 +5,18 @@ using System.Web;
 
 namespace GameApplication.Models
 {
+    /// <summary>
+    /// This class is the Match model class for the view, which matches the model class in the Web API
+    /// </summary>
     public class Match
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public long Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public long GameId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public Game Game { get; set; }
         public long PlayerId { get; set; }
         public Player Player { get; set; }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public int Rank { get; set; }
 
         public DateTime CreateTime { get; set; }

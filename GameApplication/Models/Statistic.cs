@@ -5,6 +5,9 @@ using System.Web;
 
 namespace GameApplication.Models
 {
+    /// <summary>
+    /// This class is the Statistic model class for the view, which matches the model class in the Web API
+    /// </summary>
     public class Statistic
     {
         public long Id { get; set; }
