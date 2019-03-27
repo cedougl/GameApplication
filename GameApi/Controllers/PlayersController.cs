@@ -148,7 +148,7 @@ namespace GameApi.Controllers
         /// </summary>
         /// <param name="id">ID of the player</param>
         /// <returns>Player with the given ID</returns>
-        // GET: api/v1/Players/?id=5
+        // GET: api/v1/Players?id=5
         [HttpGet]
         [ResponseType(typeof(Player))]
         public async Task<IHttpActionResult> GetPlayer(long id)
@@ -170,7 +170,7 @@ namespace GameApi.Controllers
         /// <param name="id">ID of the player to be updated</param>
         /// <param name="player">Player object used to update the player</param>
         /// <returns>Status</returns>
-        // PUT: api/v1/Players/id=5
+        // PUT: api/v1/Players?id=5
         [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> UpdatePlayer(long id, Player player)

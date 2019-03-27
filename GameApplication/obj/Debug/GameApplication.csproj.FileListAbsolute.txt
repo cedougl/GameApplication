@@ -184,3 +184,4 @@ C:\dev\GameApplication\GameApplication\bin\PagedList.dll
 C:\dev\GameApplication\GameApplication\bin\PagedList.Mvc.dll
 C:\dev\GameApplication\GameApplication\bin\PagedList.xml
 C:\dev\GameApplication\GameApplication\bin\PagedList.Mvc.xml
+C:\dev\GameApplication\GameApplication\obj\Debug\GameApplication.csprojResolveAssemblyReference.cache

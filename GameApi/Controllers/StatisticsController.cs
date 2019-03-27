@@ -100,7 +100,7 @@ namespace GameApi.Controllers
         /// <param name="id">ID of the statistic to be updated</param>
         /// <param name="statistic">Statistic object to use for the update</param>
         /// <returns>Status</returns>
-        // PUT: api/v1/Statistic?id=5
+        // PUT: api/v1/Statistics?id=5
         [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> UpdateStatistic(long id, Statistic statistic)
